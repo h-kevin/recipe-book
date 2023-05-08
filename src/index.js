@@ -1,4 +1,4 @@
-import debounce from "./helpers/debounde";
+import debounce from "./helpers/debounce";
 import './styles/index.scss';
 
 import axios from "axios";
