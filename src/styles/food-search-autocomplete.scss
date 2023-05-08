@@ -1,0 +1,27 @@
+.food-search-autocomplete-container {
+  .food-search-autocomplete-list {
+    &.hidden {
+      display: none;
+    }
+
+    margin-top: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+    border: 1px solid aqua;
+    border-radius: 8px;
+    overflow-x: hidden;
+
+    .autocomplete-option {
+      display: block;
+      padding: 8px 11px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: aqua;
+      }
+    }
+  }
+}

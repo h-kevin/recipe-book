@@ -1,6 +1,6 @@
 // Import all styles here
 
-// ...
+@import "./food-search-autocomplete.scss";
 
 // Global styling
 
@@ -13,4 +13,8 @@ body {
   line-height: 1.5;
   color: #333;
   box-sizing: border-box;
+}
+
+body {
+  padding: 15px;
 }
