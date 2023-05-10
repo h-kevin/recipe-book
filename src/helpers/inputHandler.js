@@ -7,6 +7,8 @@ import updateSuggestionsList from "./updateSuggestionsList";
 
 const inputHandler = async (event) => {
   const suggestionsList = document.querySelector('#food-search-autocomplete-list');
+  const inputLoadingIndicator = document.querySelector('#food-search-autocomplete-loading');
+
   const value = event.target.value?.toLowerCase();
 
   if (!value) {
@@ -17,6 +19,8 @@ const inputHandler = async (event) => {
   }
 
   try {
+    inputLoadingIndicator.classList.remove('hidden');
+
     const params = {
       prefix: value,
     };
@@ -32,7 +36,10 @@ const inputHandler = async (event) => {
     });
 
     updateSuggestionsList(response.data.results, suggestionsList);
+
+    inputLoadingIndicator.classList.add('hidden');
   } catch (error) {
+    inputLoadingIndicator.classList.add('hidden');
     console.error(error);
   }
 };

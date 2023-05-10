@@ -1,16 +1,47 @@
 .food-search-autocomplete-container {
+  .input-container {
+    display: flex;
+    flex-flow: row nowrap;
+    border-radius: 8px;
+    min-height: 50px;
+    font-size: 30px;
+    background-color: #fef9f1;
+    overflow: hidden;
+
+    .food-search-autocomplete {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1rem;
+      border: none;
+      padding: 11px 18px;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .loading-indicator {
+      align-self: center;
+      padding: 0 18px;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
   .food-search-autocomplete-list {
     &.hidden {
       display: none;
     }
 
-    margin-top: 5px;
+    margin-top: 11px;
     display: flex;
     flex-flow: column nowrap;
     gap: 5px;
-    border: 1px solid aqua;
+    background-color: #fef9f1;
+    border: none;
     border-radius: 8px;
     overflow-x: hidden;
+    max-height: 400px;
 
     .autocomplete-option {
       display: block;
@@ -20,7 +51,7 @@
       &:hover,
       &:focus,
       &:active {
-        background-color: aqua;
+        background-color: #d4d0c9;
       }
     }
   }

@@ -4,13 +4,19 @@
 <body>
   <form id="food-search-box">
     <div class="food-search-autocomplete-container">
-      <input
-        type="text"
-        id="food-search-autocomplete"
-        name="food-search-autocomplete"
-        class="food-search-autocomplete"
-        placeholder="Search for food..."
-      />
+      <div class="input-container">
+        <input
+          type="text"
+          id="food-search-autocomplete"
+          name="food-search-autocomplete"
+          class="food-search-autocomplete"
+          placeholder="Search for food..."
+        />
+        <span
+          id="food-search-autocomplete-loading"
+          class="loading-indicator hidden"
+        ></span>
+      </div>
       <div
         id="food-search-autocomplete-list"
         class="food-search-autocomplete-list hidden"
