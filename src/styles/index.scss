@@ -2,6 +2,7 @@
 
 @import "./food-search-autocomplete.scss";
 @import "./loading-indicator.scss";
+@import "./recipe-content.scss";
 
 // Global styling
 
@@ -15,8 +16,12 @@ body {
   color: #333;
   background-color: #fdd387;
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
+  display: grid;
+  grid-template-rows: max-content minmax(0, 1fr);
+  gap: 15px;
   padding: 15px;
 }

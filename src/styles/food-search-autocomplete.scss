@@ -1,4 +1,7 @@
 .food-search-autocomplete-container {
+  position: relative;
+  width: 100%;
+
   .input-container {
     display: flex;
     flex-flow: row nowrap;
@@ -33,8 +36,10 @@
       display: none;
     }
 
+    position: absolute;
     margin-top: 11px;
     display: flex;
+    width: 100%;
     flex-flow: column nowrap;
     gap: 5px;
     background-color: #fef9f1;
@@ -42,6 +47,7 @@
     border-radius: 8px;
     overflow-x: hidden;
     max-height: 400px;
+    z-index: 1;
 
     .autocomplete-option {
       display: block;
