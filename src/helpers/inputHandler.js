@@ -11,13 +11,6 @@ const inputHandler = async (event) => {
 
   const value = event.target.value?.toLowerCase();
 
-  if (!value) {
-    suggestionsList.classList.add('hidden');
-    suggestionsList.replaceChildren();
-
-    return;
-  }
-
   try {
     inputLoadingIndicator.classList.remove('hidden');
 

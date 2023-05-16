@@ -3,24 +3,17 @@ import axios from "axios";
 import apiBaseUrl from "../constants/apiBaseUrl";
 import apiHost from "../constants/apiHost";
 import apiKey from "../constants/apiKey";
+import manageRecipeContentLoading from "./manageRecipeContentLoading";
+import displayRecipeData from "./displayRecipeData";
 
-const getRecipe = async (recipeName) => {
-  const recipeContent = document.querySelector('#recipe-content');
-  const contentLoadingIndicator = document.createElement('div');
-  contentLoadingIndicator.classList.add('loading-indicator-container');
-  const spinner = document.createElement('span');
-  spinner.classList.add('loading-indicator');
-  const loadingText = document.createElement('span');
-  loadingText.innerText = 'Loading...';
-  contentLoadingIndicator.append(spinner, loadingText);
+const getRecipe = async (recipeQuery) => {
+  manageRecipeContentLoading(true);
 
   try {
-    recipeContent.replaceChildren(contentLoadingIndicator);
-
     const params = {
       from: '0',
       size: '1',
-      q: recipeName,
+      q: recipeQuery,
     };
 
     const headers = {
@@ -33,10 +26,17 @@ const getRecipe = async (recipeName) => {
       headers,
     });
 
-    recipeContent.innerHTML = '';
-    console.log(response.data);
+    manageRecipeContentLoading(false);
+
+    let recipeData = response.data.results[0];
+
+    if (response.data.results[0].recipes?.length) {
+      recipeData = response.data.results[0].recipes[0];
+    }
+
+    displayRecipeData(recipeData);
   } catch (error) {
-    recipeContent.innerHTML = '';
+    manageRecipeContentLoading(false);
     console.log(error);
   }
 };
